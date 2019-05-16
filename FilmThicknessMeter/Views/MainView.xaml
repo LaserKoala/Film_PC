@@ -1,0 +1,94 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Views="clr-namespace:FilmThicknessMeter.Views"
+        x:Class="FilmThicknessMeter.MainWindow"
+        mc:Ignorable="d"
+        Title="MembraneThickness" Height="772" Width="1104" Closed="Window_Closed">
+    <Grid Margin="0,0,2,1">
+        <Grid HorizontalAlignment="Left" Height="119" Margin="10,19,0,0" VerticalAlignment="Top" Width="191">
+            <Button
+                Command="{Binding ConnectionCommand}"
+                Content="Отключить"
+                HorizontalAlignment="Left"
+                Margin="10,59,0,0"
+                VerticalAlignment="Top"
+                Width="90"
+                RenderTransformOrigin="0.248,2.9"
+                />
+
+            <TextBlock
+                Text="IP-адрес преобразователя"
+                HorizontalAlignment="Left"
+                Margin="10,10,0,0"
+                TextWrapping="Wrap"
+                VerticalAlignment="Top"
+                Width="171"/>
+
+            <TextBox
+                Text="{Binding IPString}"
+                HorizontalAlignment="Left"
+                Height="23" Margin="10,31,0,0"
+                TextWrapping="Wrap"
+                VerticalAlignment="Top"
+                Width="171"/>
+            <Label Content="НЕТ ПОДКЛЮЧЕНИЯ" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Width="171" Foreground="DarkRed"/>
+        </Grid>
+
+
+        <Grid HorizontalAlignment="Left" Height="86" Margin="10,143,0,0" VerticalAlignment="Top" Width="180">
+            <TextBox
+            HorizontalAlignment="Left"
+            Height="23"
+            Margin="10,41,0,0"
+            TextWrapping="Wrap"
+            VerticalAlignment="Top"
+            Width="120"
+            RenderTransformOrigin="0.158,0.696"/>
+
+            <Label
+            Content="Опорная частота ШИМ, Гц"
+            HorizontalAlignment="Left"
+            Margin="10,10,0,0"
+            VerticalAlignment="Top"/>
+        </Grid>
+
+        <Grid HorizontalAlignment="Left" Height="148" Margin="10,234,0,0" VerticalAlignment="Top" Width="180">
+            <Button
+                HorizontalAlignment="Left"
+                Margin="10,69,0,0"
+                VerticalAlignment="Top"
+                Width="161"
+                Height="64">
+                <TextBlock  TextWrapping="Wrap" TextAlignment="Center"><Run Text="Начать "/><Run Text="/"/><Run Text=" Остановить измерение"/></TextBlock>
+            </Button>
+
+            <Label
+                Content="Время измерения, мс"
+                HorizontalAlignment="Left"
+                Margin="10,10,0,0"
+                VerticalAlignment="Top"/>
+
+            <TextBox
+                HorizontalAlignment="Left"
+                Height="23"
+                Margin="10,41,0,0"
+                TextWrapping="Wrap"
+                VerticalAlignment="Top"
+                Width="120"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="143" Margin="10,387,0,0" VerticalAlignment="Top" Width="180">
+            <RadioButton IsChecked="True" GroupName="Formats" Content="CSV" HorizontalAlignment="Left" Margin="19,37,0,0" VerticalAlignment="Top"/>
+            <RadioButton GroupName="Formats" Content="XLSX" HorizontalAlignment="Left" Margin="19,57,0,0" VerticalAlignment="Top"/>
+            <Button Content="Экспорт данных" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top" Width="160" Height="36" Click="Button_Click_1"/>
+            <Label Content="Формат экспорта данных" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top"/>
+            <RadioButton GroupName="Formats" Content="JSON" HorizontalAlignment="Left" Margin="19,77,0,0" VerticalAlignment="Top"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="70" Margin="10,644,0,0" VerticalAlignment="Top" Width="180">
+            <Button Content="Настройка каналов" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="160" Height="49" Click="Button_Click"/>
+        </Grid>
+        <Views:GraphView HorizontalAlignment="Left" Height="679" Margin="206,19,0,0" VerticalAlignment="Top" Width="852"/>
+    </Grid>
+</Window>
