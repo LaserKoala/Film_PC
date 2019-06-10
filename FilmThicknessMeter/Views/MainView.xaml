@@ -4,14 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Views="clr-namespace:FilmThicknessMeter.Views"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         x:Class="FilmThicknessMeter.MainWindow"
         mc:Ignorable="d"
-        Title="MembraneThickness" Height="772" Width="1104" Closed="Window_Closed">
+        Title="Измеритель толщины плёнки" Height="772" Width="1104" Closed="Window_Closed">
     <Grid Margin="0,0,2,1">
         <Grid HorizontalAlignment="Left" Height="119" Margin="10,19,0,0" VerticalAlignment="Top" Width="191">
             <Button
+                IsEnabled="{Binding ConnectionButtonIsEnable}"
                 Command="{Binding ConnectionCommand}"
-                Content="Отключить"
+                Content="{Binding ConnectionButtonText}"
                 HorizontalAlignment="Left"
                 Margin="10,59,0,0"
                 VerticalAlignment="Top"
@@ -34,35 +36,19 @@
                 TextWrapping="Wrap"
                 VerticalAlignment="Top"
                 Width="171"/>
-            <Label Content="НЕТ ПОДКЛЮЧЕНИЯ" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Width="171" Foreground="DarkRed"/>
+            <Label Content="{Binding ConnectionStatusText}" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Width="171" Foreground="{Binding ConnectionStatusColour}"/>
         </Grid>
 
-
-        <Grid HorizontalAlignment="Left" Height="86" Margin="10,143,0,0" VerticalAlignment="Top" Width="180">
-            <TextBox
-            HorizontalAlignment="Left"
-            Height="23"
-            Margin="10,41,0,0"
-            TextWrapping="Wrap"
-            VerticalAlignment="Top"
-            Width="120"
-            RenderTransformOrigin="0.158,0.696"/>
-
-            <Label
-            Content="Опорная частота ШИМ, Гц"
-            HorizontalAlignment="Left"
-            Margin="10,10,0,0"
-            VerticalAlignment="Top"/>
-        </Grid>
-
-        <Grid HorizontalAlignment="Left" Height="148" Margin="10,234,0,0" VerticalAlignment="Top" Width="180">
+        <Grid HorizontalAlignment="Left" Height="122" Margin="10,143,0,0" VerticalAlignment="Top" Width="180">
             <Button
+                Command="{Binding MeasurementCommand}"
+                IsEnabled="{Binding MeasurementButtonIsEnable}"
                 HorizontalAlignment="Left"
                 Margin="10,69,0,0"
                 VerticalAlignment="Top"
                 Width="161"
-                Height="64">
-                <TextBlock  TextWrapping="Wrap" TextAlignment="Center"><Run Text="Начать "/><Run Text="/"/><Run Text=" Остановить измерение"/></TextBlock>
+                Height="39">
+                <TextBlock  TextWrapping="Wrap" TextAlignment="Center"><Run Text="Начать измерение"/></TextBlock>
             </Button>
 
             <Label
@@ -72,6 +58,7 @@
                 VerticalAlignment="Top"/>
 
             <TextBox
+                Text="{Binding MeasurementTime}"
                 HorizontalAlignment="Left"
                 Height="23"
                 Margin="10,41,0,0"
@@ -79,16 +66,70 @@
                 VerticalAlignment="Top"
                 Width="120"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="143" Margin="10,387,0,0" VerticalAlignment="Top" Width="180">
-            <RadioButton IsChecked="True" GroupName="Formats" Content="CSV" HorizontalAlignment="Left" Margin="19,37,0,0" VerticalAlignment="Top"/>
-            <RadioButton GroupName="Formats" Content="XLSX" HorizontalAlignment="Left" Margin="19,57,0,0" VerticalAlignment="Top"/>
-            <Button Content="Экспорт данных" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top" Width="160" Height="36" Click="Button_Click_1"/>
-            <Label Content="Формат экспорта данных" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top"/>
-            <RadioButton GroupName="Formats" Content="JSON" HorizontalAlignment="Left" Margin="19,77,0,0" VerticalAlignment="Top"/>
+        <Grid HorizontalAlignment="Left" Height="60" Margin="10,579,0,0" VerticalAlignment="Top" Width="180">
+            <Button Command="{Binding ExportCommand}" IsEnabled="{Binding ExportButtonIsEnable}" Content="Экспорт данных" Margin="10,0,10,14" Height="36" VerticalAlignment="Bottom"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="70" Margin="10,644,0,0" VerticalAlignment="Top" Width="180">
-            <Button Content="Настройка каналов" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="160" Height="49" Click="Button_Click"/>
+            <Button Command="{Binding ConfigureCommand}" IsEnabled="{Binding ConfigureButtonIsEnable}" Content="Настройка каналов" Margin="10,10,10,11"/>
         </Grid>
-        <Views:GraphView HorizontalAlignment="Left" Height="679" Margin="206,19,0,0" VerticalAlignment="Top" Width="852"/>
+
+        <Grid>
+
+            <!--Here we disable tooltips and hovering to get a better performance-->
+            <lvc:CartesianChart AnimationsSpeed="0:0:0.1" Hoverable="False" DataTooltip="{x:Null}" Margin="224,10,10,10">
+                <lvc:CartesianChart.Series>
+                    <lvc:LineSeries
+                                Values="{Binding FirstSensor}"
+                              
+                                PointGeometry="{x:Null}" 
+                                LineSmoothness="1"
+                                StrokeThickness="6" 
+                                Stroke="LightBlue"
+                                Fill="Transparent"/>
+                    <lvc:LineSeries
+                                Values="{Binding SecondSensor}" 
+                                PointGeometry="{x:Null}" 
+                                LineSmoothness="1"
+                                StrokeThickness="6" 
+                                Stroke="LightGreen"
+                                Fill="Transparent"/>
+                    <lvc:LineSeries
+                                Values="{Binding ThirdSensor}" 
+                                PointGeometry="{x:Null}" 
+                                LineSmoothness="1"
+                                StrokeThickness="6" 
+                                Stroke="CadetBlue"
+                                Fill="Transparent"/>
+                    <lvc:LineSeries
+                                Values="{Binding FourthSensor}" 
+                                PointGeometry="{x:Null}" 
+                                LineSmoothness="1"
+                                StrokeThickness="6" 
+                                Stroke="Green"
+                                Fill="Transparent"/>
+                </lvc:CartesianChart.Series>
+                <lvc:CartesianChart.AxisX>
+                    <lvc:Axis
+                          Foreground="Black"
+                          Title="Время, мс"  
+                          MinValue="0">
+                        <lvc:Axis.Separator>
+                            <lvc:Separator Step="1" />
+                        </lvc:Axis.Separator>
+                    </lvc:Axis>
+                </lvc:CartesianChart.AxisX>
+
+                <lvc:CartesianChart.AxisY>
+                    <lvc:Axis
+                        Foreground="Black"
+                        Title="Толщина, мк"
+                        MinRange="0">
+                        <lvc:Axis.Separator>
+                            <lvc:Separator Step="5" />
+                        </lvc:Axis.Separator>
+                    </lvc:Axis>
+                </lvc:CartesianChart.AxisY>
+            </lvc:CartesianChart>
+        </Grid>
     </Grid>
 </Window>

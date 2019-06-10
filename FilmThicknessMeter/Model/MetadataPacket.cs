@@ -8,8 +8,8 @@ namespace FilmThicknessMeter.Model
 {
     class MetadataPacket
     {
-        public Int32 DataSize = Int32.MinValue;
-        public Int32 MetaDataCount = Int32.MinValue;
+        public int DataSize = Int32.MinValue;
+        public int MetaDataCount = Int32.MinValue;
         public List<string> Data = new List<string>(); 
 
         public MetadataPacket(byte[] data)

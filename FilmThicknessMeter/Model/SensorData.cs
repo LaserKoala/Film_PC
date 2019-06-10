@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FilmThicknessMeter.Model
+﻿namespace FilmThicknessMeter.Model
 {
     public class SensorData
     {
-        private DateTime _time;
-        public DateTime Time
+        private ulong _time;
+        public ulong Time
         {
             get
             {
@@ -47,7 +41,7 @@ namespace FilmThicknessMeter.Model
             }
         }
 
-        public SensorData(DateTime time, ushort sensorID, double value)
+        public SensorData(ulong time, ushort sensorID, double value)
         {
             Time = time;
             SensorID = sensorID;

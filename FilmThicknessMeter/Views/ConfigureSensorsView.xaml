@@ -1,13 +1,14 @@
 ﻿<Window x:Class="FilmThicknessMeter.Views.ConfigureSensorsView"
+        x:Name="ConfigurationWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FilmThicknessMeter.Views"
         mc:Ignorable="d"
-        Title="ConfigureSensorsView" Height="306.572" Width="328.73">
-    <Grid Margin="0,0,2,0">
-        <Grid HorizontalAlignment="Left" Height="255" Margin="10,10,0,0" VerticalAlignment="Top" Width="312">
+        Title="Настройка каналов" Height="381.572" Width="353.73">
+    <Grid Margin="0,0,2,2">
+        <Grid HorizontalAlignment="Left" Height="255" Margin="21,87,0,0" VerticalAlignment="Top" Width="312">
 
             <Label
                 Content="Настройка каналов"
@@ -17,6 +18,7 @@
 
             <Grid HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="290" Margin="0,41,0,0">
                 <Slider
+                    Value="{Binding FirstSensor}"
                     HorizontalAlignment="Left"
                     Margin="72,10,0,0"
                     VerticalAlignment="Top"
@@ -28,6 +30,7 @@
                     TickFrequency="0.05"/>
 
                 <TextBox
+                    Text="{Binding FirstSensor}"
                     HorizontalAlignment="Left"
                     Height="23" Margin="213,10,0,0"
                     TextWrapping="Wrap"
@@ -37,6 +40,8 @@
             </Grid>
 
             <Button
+                Command="{Binding SaveConfigurationCommand, Mode=OneWay}"
+                CommandParameter="{Binding ElementName = ConfigurationWindow}"
                 HorizontalAlignment="Left"
                 Margin="10,206,0,0"
                 VerticalAlignment="Top"
@@ -46,6 +51,7 @@
             </Button>
             <Grid HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="290" Margin="0,81,0,0">
                 <Slider
+                    Value="{Binding SecondSensor}"
                     HorizontalAlignment="Left"
                     Margin="72,10,0,0"
                     VerticalAlignment="Top"
@@ -57,6 +63,7 @@
                     TickFrequency="0.05"/>
 
                 <TextBox
+                    Text="{Binding SecondSensor}"
                     HorizontalAlignment="Left"
                     Height="23" Margin="213,10,0,0"
                     TextWrapping="Wrap"
@@ -66,6 +73,7 @@
             </Grid>
             <Grid HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="290" Margin="0,121,0,0">
                 <Slider
+                    Value="{Binding ThirdSensor}"
                     HorizontalAlignment="Left"
                     Margin="72,10,0,0"
                     VerticalAlignment="Top"
@@ -77,6 +85,7 @@
                     TickFrequency="0.05" />
 
                 <TextBox
+                    Text="{Binding ThirdSensor}"
                     HorizontalAlignment="Left"
                     Height="23" Margin="213,10,0,0"
                     TextWrapping="Wrap"
@@ -86,6 +95,7 @@
             </Grid>
             <Grid HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="290" Margin="0,161,0,0">
                 <Slider
+                    Value="{Binding FourthSensor}"
                     HorizontalAlignment="Left"
                     Margin="72,10,0,0"
                     VerticalAlignment="Top"
@@ -97,6 +107,7 @@
                     TickFrequency="0.05" />
 
                 <TextBox
+                    Text="{Binding FourthSensor}"
                     HorizontalAlignment="Left"
                     Height="23" Margin="213,10,0,0"
                     TextWrapping="Wrap"
@@ -104,6 +115,25 @@
                     Width="66"/>
                 <Label Content="4 канал" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="57"/>
             </Grid>
+            <Label Content="{Binding ErrorMessage}" Foreground="DarkRed" HorizontalAlignment="Left" Margin="190,209,0,0" VerticalAlignment="Top" Width="100"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="86" Margin="21,10,0,0" VerticalAlignment="Top" Width="312">
+            <TextBox
+                PreviewTextInput="TextBox_PreviewTextInput"
+                Text="{Binding PWMValue}"
+                HorizontalAlignment="Left"
+                Height="23"
+                Margin="10,41,0,0"
+                TextWrapping="Wrap"
+                VerticalAlignment="Top"
+                Width="157"
+                RenderTransformOrigin="0.158,0.696"/>
+
+            <Label
+                Content="Опорная частота ШИМ, Гц"
+                HorizontalAlignment="Left"
+                Margin="10,10,0,0"
+                VerticalAlignment="Top"/>
         </Grid>
 
     </Grid>

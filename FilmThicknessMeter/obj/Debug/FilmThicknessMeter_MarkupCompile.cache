@@ -1,7 +1,7 @@
 ﻿FilmThicknessMeter
 
 
-exe
+winexe
 C#
 .cs
 Z:\Working\C#\Projects\FilmThicknessMeter\FilmThicknessMeter\obj\Debug\
@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 Z:\Working\C#\Projects\FilmThicknessMeter\FilmThicknessMeter\App.xaml
-3-1852698223
+2-1454036372
 
-161742059284
-23471903621
-Views\ConfigureSensorsView.xaml;Views\GraphView.xaml;Views\MainView.xaml;
+17-2076960143
+87792859436
+Views\ConfigureSensorsView.xaml;Views\MainView.xaml;
 
 False
 
