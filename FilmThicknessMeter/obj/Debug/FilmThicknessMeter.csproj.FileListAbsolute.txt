@@ -27,7 +27,6 @@ Z:\Working\C#\Projects\FilmThicknessMeter\FilmThicknessMeter\bin\Debug\Prism.pdb
 Z:\Working\C#\Projects\FilmThicknessMeter\FilmThicknessMeter\bin\Debug\Prism.xml
 Z:\Working\C#\Projects\FilmThicknessMeter\FilmThicknessMeter\bin\Debug\Prism.Wpf.pdb
 Z:\Working\C#\Projects\FilmThicknessMeter\FilmThicknessMeter\bin\Debug\Prism.Wpf.xml
-Z:\Working\C#\Projects\FilmThicknessMeter\FilmThicknessMeter\obj\Debug\FilmThicknessMeter.csprojAssemblyReference.cache
 Z:\Working\C#\Projects\FilmThicknessMeter\FilmThicknessMeter\bin\Debug\Newtonsoft.Json.dll
 Z:\Working\C#\Projects\FilmThicknessMeter\FilmThicknessMeter\bin\Debug\Newtonsoft.Json.xml
 Z:\Working\C#\Projects\FilmThicknessMeter\FilmThicknessMeter\bin\Debug\ClosedXML.dll

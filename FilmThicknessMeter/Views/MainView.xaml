@@ -75,18 +75,20 @@
 
         <Grid>
 
+
             <!--Here we disable tooltips and hovering to get a better performance-->
-            <lvc:CartesianChart AnimationsSpeed="0:0:0.1" Hoverable="False" DataTooltip="{x:Null}" Margin="224,10,10,10">
+            <lvc:CartesianChart AnimationsSpeed="0:0:0.1" Hoverable="False" LegendLocation ="Right" Margin="224,10,10,10">
                 <lvc:CartesianChart.Series>
                     <lvc:LineSeries
+                                Title="1-й канал"
                                 Values="{Binding FirstSensor}"
-                              
                                 PointGeometry="{x:Null}" 
                                 LineSmoothness="1"
                                 StrokeThickness="6" 
                                 Stroke="LightBlue"
                                 Fill="Transparent"/>
                     <lvc:LineSeries
+                                Title="2-ой канал"
                                 Values="{Binding SecondSensor}" 
                                 PointGeometry="{x:Null}" 
                                 LineSmoothness="1"
@@ -94,6 +96,7 @@
                                 Stroke="LightGreen"
                                 Fill="Transparent"/>
                     <lvc:LineSeries
+                                Title="3-й канал"                        
                                 Values="{Binding ThirdSensor}" 
                                 PointGeometry="{x:Null}" 
                                 LineSmoothness="1"
@@ -101,6 +104,7 @@
                                 Stroke="CadetBlue"
                                 Fill="Transparent"/>
                     <lvc:LineSeries
+                                Title="4-й канал"
                                 Values="{Binding FourthSensor}" 
                                 PointGeometry="{x:Null}" 
                                 LineSmoothness="1"

@@ -4,7 +4,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FilmThicknessMeter.Views"
         mc:Ignorable="d"
         Title="Настройка каналов" Height="381.572" Width="353.73">
     <Grid Margin="0,0,2,2">
@@ -16,11 +15,11 @@
                 Margin="10,10,0,0"
                 VerticalAlignment="Top"/>
 
-            <Grid HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="290" Margin="0,41,0,0">
+            <Grid HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="302" Margin="0,41,0,0">
                 <Slider
                     Value="{Binding FirstSensor}"
                     HorizontalAlignment="Left"
-                    Margin="72,10,0,0"
+                    Margin="85,10,0,0"
                     VerticalAlignment="Top"
                     Width="136"
                     Height="23"
@@ -32,11 +31,11 @@
                 <TextBox
                     Text="{Binding FirstSensor}"
                     HorizontalAlignment="Left"
-                    Height="23" Margin="213,10,0,0"
+                    Height="23" Margin="226,10,0,0"
                     TextWrapping="Wrap"
                     VerticalAlignment="Top"
                     Width="66"/>
-                <Label Content="1 канал" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="57"/>
+                <Label Content="1-й канал" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="70"/>
             </Grid>
 
             <Button
@@ -49,11 +48,11 @@
                 Height="33">
                 <TextBlock TextWrapping="Wrap" Text="Сохранить настройки"/>
             </Button>
-            <Grid HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="290" Margin="0,81,0,0">
+            <Grid HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="302" Margin="0,81,0,0">
                 <Slider
                     Value="{Binding SecondSensor}"
                     HorizontalAlignment="Left"
-                    Margin="72,10,0,0"
+                    Margin="85,10,0,0"
                     VerticalAlignment="Top"
                     Width="136"
                     Height="23"
@@ -65,17 +64,17 @@
                 <TextBox
                     Text="{Binding SecondSensor}"
                     HorizontalAlignment="Left"
-                    Height="23" Margin="213,10,0,0"
+                    Height="23" Margin="226,7,0,0"
                     TextWrapping="Wrap"
                     VerticalAlignment="Top"
                     Width="66"/>
-                <Label Content="2 канал" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="57"/>
+                <Label Content="2-ой канал" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="70"/>
             </Grid>
-            <Grid HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="290" Margin="0,121,0,0">
+            <Grid HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="302" Margin="0,121,0,0">
                 <Slider
                     Value="{Binding ThirdSensor}"
                     HorizontalAlignment="Left"
-                    Margin="72,10,0,0"
+                    Margin="85,10,0,0"
                     VerticalAlignment="Top"
                     Width="136"
                     Height="23"
@@ -87,17 +86,17 @@
                 <TextBox
                     Text="{Binding ThirdSensor}"
                     HorizontalAlignment="Left"
-                    Height="23" Margin="213,10,0,0"
+                    Height="23" Margin="226,7,0,0"
                     TextWrapping="Wrap"
                     VerticalAlignment="Top"
                     Width="66"/>
-                <Label Content="3 канал" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="57"/>
+                <Label Content="3-й канал" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="70"/>
             </Grid>
-            <Grid HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="290" Margin="0,161,0,0">
+            <Grid HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="302" Margin="0,161,0,0">
                 <Slider
                     Value="{Binding FourthSensor}"
                     HorizontalAlignment="Left"
-                    Margin="72,10,0,0"
+                    Margin="85,7,0,0"
                     VerticalAlignment="Top"
                     Width="136"
                     Height="23"
@@ -109,11 +108,11 @@
                 <TextBox
                     Text="{Binding FourthSensor}"
                     HorizontalAlignment="Left"
-                    Height="23" Margin="213,10,0,0"
+                    Height="23" Margin="226,7,0,0"
                     TextWrapping="Wrap"
                     VerticalAlignment="Top"
                     Width="66"/>
-                <Label Content="4 канал" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="57"/>
+                <Label Content="4-й канал" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="70"/>
             </Grid>
             <Label Content="{Binding ErrorMessage}" Foreground="DarkRed" HorizontalAlignment="Left" Margin="190,209,0,0" VerticalAlignment="Top" Width="100"/>
         </Grid>

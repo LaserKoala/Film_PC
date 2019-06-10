@@ -5,9 +5,6 @@ using System.Windows;
 
 namespace FilmThicknessMeter.Views
 {
-    /// <summary>
-    /// Interaction logic for ConfigureSensorsView.xaml
-    /// </summary>
     public partial class ConfigureSensorsView : Window, IClosable
     {
         public ConfigureSensorsView()

@@ -1,8 +1,5 @@
-﻿using FilmThicknessMeter.Model;
-using FilmThicknessMeter.ViewModels;
-using FilmThicknessMeter.Views;
+﻿using FilmThicknessMeter.ViewModels;
 using System;
-using System.Text.RegularExpressions;
 using System.Windows;
 
 namespace FilmThicknessMeter
